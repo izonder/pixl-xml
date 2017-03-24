@@ -519,7 +519,7 @@ var compose_xml = exports.stringify = function compose_xml(node, name, indent, i
 			
 			if (node["_Attribs"]) {
 				has_attribs = 1;
-				var sorted_keys = hash_keys_to_array(node["_Attribs"]).sort();
+				var sorted_keys = hash_keys_to_array(node["_Attribs"]);
 				for (var idx = 0, len = sorted_keys.length; idx < len; idx++) {
 					var key = sorted_keys[idx];
 					xml += " " + key + "=\"" + encode_attrib_entities(node["_Attribs"][key]) + "\"";
@@ -537,7 +537,7 @@ var compose_xml = exports.stringify = function compose_xml(node, name, indent, i
 				else {
 					xml += eol;
 					
-					var sorted_keys = hash_keys_to_array(node).sort();
+					var sorted_keys = hash_keys_to_array(node);
 					for (var idx = 0, len = sorted_keys.length; idx < len; idx++) {
 						var key = sorted_keys[idx];					
 						if ((key != "_Attribs") && key.match(re_valid_tag_name)) {
